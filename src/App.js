@@ -1,13 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-
+import { HelloPersion, Hello} from './Hello';
+import { Header } from './Header';
+import HelloChaoXin from './Hellochaoxin';
+import Car from './Car';
+import Login from './Login';
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <Header />
+          <Hello />
+          <HelloPersion name={'Đoàn Gia Thịnh'} />
+          <HelloChaoXin name={'Thinh Dep Trai'}/>
+          <Car />
+          <Login />
         </p>
         <a
           className="App-link"
