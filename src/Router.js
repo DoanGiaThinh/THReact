@@ -1,18 +1,36 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Login";
+import {createBrowserRouter } from "react-router-dom";
+import Login from "./Components/Login/Login";
 import App from "./App";
-import Car from "./Car";
-import HelloChaoXin from "./Hellochaoxin";
-export default function Router(){
-    return(
-        <BrowserRouter>
-        <Routes>
-        <Route path="/" element={<App/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/hellochaoxin" element={<HelloChaoXin/>}/>
-        <Route path="/car" element={<Car/>}/>
-        <Route path="*" element={"Khong tim thay"}/>
-        </Routes>
-        </BrowserRouter>
-    )
-}
+import Car from "./Components/Car";
+import HelloChaoXin from "./Components/Hellochaoxin";
+import Register from "./Components/Register/Register";
+
+
+export const router = createBrowserRouter([
+    { 
+        path: '/', 
+        element: <App />,
+        children: [
+            {
+                path: '/car',
+                element: <Car />
+            },{ 
+                path: '/hellochaoxin',
+                element: <HelloChaoXin />
+            }
+        ]
+    },
+    {
+        path: '/login',
+        element: <Login />
+    
+    },
+    {
+        path: '/register',
+        element: <Register />
+    },
+    {
+        path: '*',
+        element: <div>Không tìm thấy</div>
+    }
+]);
